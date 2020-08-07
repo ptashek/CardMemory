@@ -1,0 +1,8 @@
+[options]
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+module.file_ext=.js
+module.name_mapper='^\(modules\|styles\)/\(.*\)' -> '<PROJECT_ROOT>/src/\1/\2'
+
+[include]
+<PROJECT_ROOT>/src

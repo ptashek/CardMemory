@@ -1,0 +1,87 @@
+{
+  "name": "cardmemory",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@workday/canvas-colors-web": "^2.0.0",
+    "classnames": "^2.2.6",
+    "core-js": "^3.6.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.7",
+    "fontsource-roboto": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.9.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/preset-flow": "^7.9.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "babel-plugin-import": "^1.13.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "flow-bin": "^0.130.0",
+    "flow-typed": "latest",
+    "react-scripts": "3.4.1",
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "update-types": "flow-typed update --ignoreDeps peer dev bundled -s",
+    "lint": "eslint --fix src/**/*.js",
+    "format": "prettier --write src/**/*.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:jsx-a11y/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y",
+      "prettier",
+      "react",
+      "react-hooks"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "optionalDependencies": {
+    "fsevents": "*",
+    "inotify": "*"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "parser": "babel-flow",
+    "printWidth": 100,
+    "quoteProps": "as-needed",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": true,
+    "tabWidth": 2
+  }
+}
