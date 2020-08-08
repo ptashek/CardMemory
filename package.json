@@ -22,6 +22,7 @@
     "@babel/preset-flow": "^7.9.0",
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.8",
+    "@testing-library/react-hooks": "^3.4.1",
     "@testing-library/user-event": "^12.1.1",
     "babel-plugin-import": "^1.13.0",
     "eslint-config-prettier": "^6.11.0",
@@ -31,7 +32,8 @@
     "flow-bin": "^0.130.0",
     "flow-typed": "latest",
     "prettier": "^2.0.5",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
