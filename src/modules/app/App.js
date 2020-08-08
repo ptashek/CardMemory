@@ -11,21 +11,29 @@ import AppBar from './AppBar';
 import Stats from './Stats';
 import GameOverModal from './GameOverModal';
 import theme from './styles/theme';
+import { generateCardPairs } from '../cards/utils';
 
-const PAIR_COUNT: number = 5;
+// exported for testing purposes only
+export const PAIR_COUNT: number = 10;
 
 const App: ComponentType<{}> = () => {
   const [state, dispatch]: [State, Dispatch] = useAppState();
+  const [cardPairs, setCardPairs] = React.useState(generateCardPairs(PAIR_COUNT));
+
+  const restartGame = React.useCallback(() => {
+    dispatch({ type: 'restart' });
+    setCardPairs(generateCardPairs(PAIR_COUNT));
+  }, [dispatch]);
 
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <AppStateContext.Provider value={[state, dispatch, PAIR_COUNT]}>
-          <AppBar />
-          <GameOverModal />
+          <AppBar onRestartClick={restartGame} />
+          <GameOverModal onPlayAgainClick={restartGame} />
           <Stats />
-          <CardsContainer />
+          <CardsContainer cardPairs={cardPairs} />
         </AppStateContext.Provider>
       </ThemeProvider>
     </>

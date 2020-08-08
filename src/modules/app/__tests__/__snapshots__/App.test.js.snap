@@ -25,9 +25,8 @@ exports[`<App /> matches snapshot 1`] = `
         Card Memory
       </h6>
       <button
-        class="MuiButtonBase-root-113 MuiButton-root-86 MuiButton-contained-94 MuiButton-containedSecondary-96 Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
+        class="MuiButtonBase-root-113 MuiButton-root-86 MuiButton-contained-94 MuiButton-containedSecondary-96"
+        tabindex="0"
         type="button"
       >
         <span
@@ -49,6 +48,9 @@ exports[`<App /> matches snapshot 1`] = `
           </span>
           Restart
         </span>
+        <span
+          class="MuiTouchRipple-root-153"
+        />
       </button>
     </div>
   </header>
@@ -62,9 +64,9 @@ exports[`<App /> matches snapshot 1`] = `
     You have solved 
     0
      out of 
-    5
+    10
      pairs in 
-    0
+    1
      moves
   </h6>
   <div
@@ -87,7 +89,21 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-126 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-126 makeStyles-card-119 makeStyles-faceUp-124"
+      data-testid="card"
+    >
+      <div
+        class="MuiBox-root-117 MuiBox-root-127 makeStyles-cardContent-123 makeStyles-faceUp-124"
+      >
+        <span
+          class="MuiAvatar-root-128 MuiAvatar-circle-130 makeStyles-faceCommon-120 makeStyles-avatar-122 MuiAvatar-colorDefault-129"
+        >
+          1
+        </span>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-135 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -103,7 +119,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-127 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-136 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -119,7 +135,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-128 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-137 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -135,7 +151,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-129 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-138 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -151,7 +167,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-130 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-139 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -167,7 +183,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-131 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-140 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -183,7 +199,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-132 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-141 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -199,7 +215,7 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-133 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-142 makeStyles-card-119"
       data-testid="card"
     >
       <svg
@@ -215,7 +231,151 @@ exports[`<App /> matches snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="MuiBox-root-117 MuiBox-root-134 makeStyles-card-119"
+      class="MuiBox-root-117 MuiBox-root-143 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-144 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-145 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-146 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-147 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-148 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-149 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-150 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-151 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-152 makeStyles-card-119"
       data-testid="card"
     >
       <svg

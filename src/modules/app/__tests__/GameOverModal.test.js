@@ -5,6 +5,7 @@ import GameOverModal from '../GameOverModal';
 
 describe('<GameOverModal />', () => {
   const dispatch = jest.fn();
+  const onPlayAgain = jest.fn();
   const defaultState = {
     selected: new Map(),
     solved: new Set(['foo']),
@@ -20,7 +21,7 @@ describe('<GameOverModal />', () => {
   test('does not render when solved pair count does not match total', () => {
     const { queryByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, dispatch, 2]}>
-        <GameOverModal />
+        <GameOverModal onPlayAgainClick={onPlayAgain} />
       </AppStateContext.Provider>,
     );
 
@@ -30,7 +31,7 @@ describe('<GameOverModal />', () => {
   test('renders if solved pair count matches total', () => {
     const { getByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[solvedState, dispatch, 2]}>
-        <GameOverModal />
+        <GameOverModal onPlayAgainClick={onPlayAgain} />
       </AppStateContext.Provider>,
     );
 
@@ -40,7 +41,7 @@ describe('<GameOverModal />', () => {
   test('has the play again button', () => {
     const { getByText } = renderWithTheme(
       <AppStateContext.Provider value={[solvedState, dispatch, 2]}>
-        <GameOverModal />
+        <GameOverModal onPlayAgainClick={onPlayAgain} />
       </AppStateContext.Provider>,
     );
 
@@ -50,11 +51,11 @@ describe('<GameOverModal />', () => {
   test('when clicked the play again button dispatches the correct action', () => {
     const { getByText } = renderWithTheme(
       <AppStateContext.Provider value={[solvedState, dispatch, 2]}>
-        <GameOverModal />
+        <GameOverModal onPlayAgainClick={onPlayAgain} />
       </AppStateContext.Provider>,
     );
 
     fireEvent.click(getByText('Play again!'));
-    expect(dispatch).toHaveBeenCalledWith({ type: 'restart' });
+    expect(onPlayAgain).toHaveBeenCalledTimes(1);
   });
 });

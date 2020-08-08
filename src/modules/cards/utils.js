@@ -4,22 +4,23 @@ import colors from '@workday/canvas-colors-web';
 export type CardPair = [string, number];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-export const getRandomInt = (rangeStart: number, rangeEnd: number): number => {
+const getRandomInt = (rangeStart: number, rangeEnd: number): number => {
   const min = Math.ceil(rangeStart);
   const max = Math.floor(rangeEnd);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 };
 
 // https://en.wikipedia.org/wiki/Fisher-Yates_shuffle
-export const shuffle = <T>(input: Array<T>): Array<T> => {
+const shuffle = <T>(input: Array<T>): Array<T> => {
   const output = [...input];
   const lastIndex = output.length - 1;
+  let tmp, targetIndex;
 
-  for (let sourceIndex = lastIndex; sourceIndex > 1; sourceIndex--) {
-    const targetIndex = getRandomInt(0, sourceIndex);
-    const tmp = output[targetIndex];
-    output[targetIndex] = output[sourceIndex];
-    output[sourceIndex] = tmp;
+  for (let sourceIndex = lastIndex; sourceIndex > 0; sourceIndex--) {
+    targetIndex = getRandomInt(0, sourceIndex);
+    tmp = output[sourceIndex];
+    output[sourceIndex] = output[targetIndex];
+    output[targetIndex] = tmp;
   }
 
   return output;
@@ -29,13 +30,14 @@ export const shuffle = <T>(input: Array<T>): Array<T> => {
   only include the mid-range hues from the canvas palette
   https://design.workday.com/tokens/basic/colors/canvas-colors
 */
-export const randomColors: string[] = shuffle<string>(
+const randomColors: string[] = shuffle<string>(
   Object.keys(colors).filter((name: string) => ['200', '300', '400'].includes(name.substr(-3))),
 );
 
 export const generateCardPairs = (pairCount: number): CardPair[] => {
   const cards: CardPair[] = [];
   const cardCount: number = pairCount * 2;
+
   for (let i: number = 0; i < cardCount; i++) {
     const pairIndex = Math.floor(i / 2);
     const colorName: string = randomColors[pairIndex];

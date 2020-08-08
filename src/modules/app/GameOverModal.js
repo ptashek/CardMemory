@@ -1,4 +1,5 @@
 // @flow
+import type { ComponentType } from 'react';
 import type { State, Dispatch } from '../../hooks/useAppState';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,11 +13,14 @@ import styles from './styles/GameOverModal';
 
 const useStyles = makeStyles(styles);
 
-const GameOverModal = () => {
-  const classes = useStyles();
-  const [state, dispatch, pairCount]: [State, Dispatch, number] = React.useContext(AppStateContext);
+type GameOverModalProps = {
+  onPlayAgainClick: () => void,
+};
 
-  const playAgain = React.useCallback(() => dispatch({ type: 'restart' }), [dispatch]);
+const GameOverModal: ComponentType<GameOverModalProps> = (props: GameOverModalProps) => {
+  const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
+  const [state, _, pairCount]: [State, Dispatch, number] = React.useContext(AppStateContext);
 
   if (state.solved.size !== pairCount) {
     return null;
@@ -27,7 +31,7 @@ const GameOverModal = () => {
       data-testid="game-over-dialog"
       className={classes.modal}
       open={true}
-      onClose={playAgain}
+      onClose={props.onPlayAgainClick}
       aria-labelledby="modal-title"
       aria-describedby="modal-content"
     >
@@ -53,7 +57,7 @@ const GameOverModal = () => {
             variant="contained"
             color="primary"
             startIcon={<RotateLeftIcon />}
-            onClick={playAgain}
+            onClick={props.onPlayAgainClick}
           >
             Play again!
           </Button>
@@ -63,4 +67,4 @@ const GameOverModal = () => {
   );
 };
 
-export default React.memo<{}>(GameOverModal);
+export default React.memo<GameOverModalProps>(GameOverModal);

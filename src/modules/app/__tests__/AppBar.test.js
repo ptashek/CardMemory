@@ -3,7 +3,9 @@ import { render, fireEvent } from '@testing-library/react';
 import AppStateContext from '../AppStateContext';
 import AppBar from '../AppBar';
 
-describe('<AppBar />', () => {
+describe('<AppBar onRestartClick={onRestart} />', () => {
+  const onRestart = jest.fn();
+
   const defaultState = {
     selected: new Map(),
     solved: new Set(['foo']),
@@ -19,7 +21,7 @@ describe('<AppBar />', () => {
   test('renders the app icon', () => {
     const { getByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, jest.fn(), 5]}>
-        <AppBar />
+        <AppBar onRestartClick={onRestart} />
       </AppStateContext.Provider>,
     );
 
@@ -29,7 +31,7 @@ describe('<AppBar />', () => {
   test('renders the app title', () => {
     const { getByText } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, jest.fn(), 5]}>
-        <AppBar />
+        <AppBar onRestartClick={onRestart} />
       </AppStateContext.Provider>,
     );
 
@@ -39,7 +41,7 @@ describe('<AppBar />', () => {
   test('renders the restart button', () => {
     const { getByRole } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, jest.fn(), 5]}>
-        <AppBar />
+        <AppBar onRestartClick={onRestart} />
       </AppStateContext.Provider>,
     );
 
@@ -56,7 +58,7 @@ describe('<AppBar />', () => {
     };
     const { getByRole } = renderWithTheme(
       <AppStateContext.Provider value={[state, jest.fn(), 5]}>
-        <AppBar />
+        <AppBar onRestartClick={onRestart} />
       </AppStateContext.Provider>,
     );
 
@@ -72,7 +74,7 @@ describe('<AppBar />', () => {
     };
     const { getByRole } = renderWithTheme(
       <AppStateContext.Provider value={[state, dispatch, 5]}>
-        <AppBar />
+        <AppBar onRestartClick={onRestart} />
       </AppStateContext.Provider>,
     );
 
@@ -80,6 +82,6 @@ describe('<AppBar />', () => {
     expect(getByRole('button').disabled).toBe(false);
 
     fireEvent.click(button);
-    expect(dispatch).toHaveBeenCalledWith({ type: 'restart' });
+    expect(onRestart).toHaveBeenCalledTimes(1);
   });
 });

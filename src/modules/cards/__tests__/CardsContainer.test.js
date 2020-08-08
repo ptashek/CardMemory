@@ -1,11 +1,9 @@
 import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react';
-import * as utils from '../../../utils';
 import AppStateContext from '../../app/AppStateContext';
 import CardsContainer from '../CardsContainer';
 
-describe('<CardsContainer />', () => {
-  const pairCount = 5;
+describe('<CardsContainer cardPairs={cardPairs} />', () => {
   const dispatch = jest.fn();
   const defaultState = {
     selected: new Map(),
@@ -28,25 +26,19 @@ describe('<CardsContainer />', () => {
     moves: 42,
   };
 
-  beforeAll(() => {
-    const cardCount = pairCount * 2;
-    const cards = [];
-    for (let i = 0; i < cardCount; i++) {
-      const pairIndex = Math.floor(i / 2);
-      const colorName = `color-${pairIndex}`;
-      cards.push([colorName, pairIndex]);
-    }
-    utils.generateCardPairs = jest.fn().mockReturnValue(cards);
-  });
-
-  afterAll(() => {
-    utils.generateCardPairs.restoreMock();
-  });
+  const cardPairs = [];
+  const pairCount = 3;
+  const cardCount = pairCount * 2;
+  for (let i = 0; i < cardCount; i++) {
+    const pairIndex = Math.floor(i / 2);
+    const colorName = `color-${pairIndex}`;
+    cardPairs.push([colorName, pairIndex]);
+  }
 
   test('renders the expected number of cards', () => {
     const { queryAllByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
@@ -56,7 +48,7 @@ describe('<CardsContainer />', () => {
   test('all cards render face down by default', () => {
     const { queryAllByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
@@ -67,7 +59,7 @@ describe('<CardsContainer />', () => {
   test('solved cards render face up by default', () => {
     const { queryAllByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[solvedState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
@@ -78,7 +70,7 @@ describe('<CardsContainer />', () => {
   test('selected cards render face up by default', () => {
     const { queryAllByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[selectedState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
@@ -92,7 +84,7 @@ describe('<CardsContainer />', () => {
   test('non-matching selected pair is turned face down after a short delay', async () => {
     renderWithTheme(
       <AppStateContext.Provider value={[selectedState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
@@ -104,7 +96,7 @@ describe('<CardsContainer />', () => {
   test('when a card is clicked the correct click action is dispatched', async () => {
     const { getAllByTestId } = renderWithTheme(
       <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
-        <CardsContainer />
+        <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
 
