@@ -1,0 +1,21 @@
+{
+  "testEnvironment": "jest-environment-jsdom-fourteen",
+  "setupFilesAfterEnv": ["./src/setupTests.js"],
+  "cacheDirectory": "./.jest",
+  "testMatch": ["<rootDir>/src/**/__tests__/*.test.js"],
+  "coveragePathIgnorePatterns": [],
+  "coverageReporters": ["text"],
+  "coverageDirectory": "./coverage",
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.js",
+    "!<rootDir>/src/index.js",
+    "!<rootDir>/src/modules/app/AppStateContext.js",
+    "!<rootDir>/src/**/__tests__/*"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 90
+    }
+  },
+  "verbose": false
+}
