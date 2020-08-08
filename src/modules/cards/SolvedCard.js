@@ -19,6 +19,7 @@ const SolvedCard: ComponentType<SolvedCardProps> = (props: SolvedCardProps) => {
 
   return (
     <Box
+      data-testid="solved-card"
       borderRadius={16}
       boxShadow={3}
       width={80}

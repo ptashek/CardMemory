@@ -46,14 +46,7 @@ const CardsContainer: ComponentType<{}> = () => {
       const cardKey = `card-${id}`;
 
       if (state.solved.has(color)) {
-        return (
-          <SolvedCard
-            faceColor={color}
-            faceText={String(pairIndex + 1)}
-            data-testid={cardKey}
-            key={cardKey}
-          />
-        );
+        return <SolvedCard faceColor={color} faceText={String(pairIndex + 1)} key={cardKey} />;
       }
 
       return (
@@ -62,7 +55,6 @@ const CardsContainer: ComponentType<{}> = () => {
           faceColor={color}
           faceText={String(pairIndex + 1)}
           onClick={clickHandlerFor(id, color)}
-          data-testid={cardKey}
           key={cardKey}
         />
       );

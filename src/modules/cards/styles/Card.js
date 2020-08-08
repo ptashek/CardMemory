@@ -17,8 +17,8 @@ export default (theme) => ({
   avatar: {
     position: 'absolute',
     border: '3px solid black',
-    color: theme.palette.primary.light,
-    backgroundColor: 'transparent',
+    color: theme.palette.white,
+    backgroundColor: theme.palette.colors.coconut600,
   },
   cardContent: {
     backfaceVisibility: 'hidden',

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SolvedCard /> matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiBox-root MuiBox-root-2"
+    data-testid="solved-card"
+  >
+    <div
+      class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1 MuiAvatar-colorDefault"
+    >
+      42
+    </div>
+  </div>
+</div>
+`;

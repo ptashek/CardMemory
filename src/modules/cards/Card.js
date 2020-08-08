@@ -30,12 +30,13 @@ const CardBack: ComponentType<{}> = () => {
 
   return (
     <HelpOutlineIcon
+      data-testid="card-back-icon"
       className={classnames(classes.cardContent, classes.faceCommon, classes.icon)}
     />
   );
 };
 
-export const CardFace: ComponentType<CardFaceProps> = (props: CardFaceProps) => {
+const CardFace: ComponentType<CardFaceProps> = (props: CardFaceProps) => {
   const classes = useStyles();
 
   return (
@@ -65,6 +66,7 @@ const Card: CardElement = (props: CardProps) => {
 
   return (
     <Box
+      data-testid="card"
       borderRadius={16}
       boxShadow={3}
       width={80}
