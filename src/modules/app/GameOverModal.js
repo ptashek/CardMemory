@@ -24,6 +24,7 @@ const GameOverModal = () => {
 
   return (
     <Modal
+      data-testid="game-over-dialog"
       className={classes.modal}
       open={true}
       onClose={playAgain}

@@ -24,7 +24,7 @@ const AppBar: ComponentType<AppBarProps> = (props: AppBarProps) => {
   return (
     <MUIAppBar className={classes.root} position="sticky" {...props}>
       <Toolbar variant="dense">
-        <GamepadIcon className={classes.icon} />
+        <GamepadIcon data-testid="app-logo" className={classes.icon} />
         <Typography variant="h6" className={classes.title} noWrap>
           Card Memory
         </Typography>
