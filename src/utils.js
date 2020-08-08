@@ -25,7 +25,13 @@ export const shuffle = <T>(input: Array<T>): Array<T> => {
   return output;
 };
 
-export const randomColors: string[] = shuffle<string>(Object.keys(colors));
+/* 
+  only include the mid-range hues from the canvas palette
+  https://design.workday.com/tokens/basic/colors/canvas-colors
+*/
+export const randomColors: string[] = shuffle<string>(
+  Object.keys(colors).filter((name: string) => ['200', '300', '400'].includes(name.substr(-3))),
+);
 
 export const generateCardPairs = (pairCount: number): CardPair[] => {
   const cards: CardPair[] = [];
