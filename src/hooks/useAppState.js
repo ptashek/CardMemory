@@ -16,6 +16,7 @@ export type State = {
   selected: Map<number, string>,
   solved: Set<string>,
   moves: number,
+  timer: number,
 };
 
 export type Dispatch = (action: Action) => void;
@@ -24,12 +25,16 @@ const initialState = (): State => ({
   selected: new Map(),
   solved: new Set(),
   moves: 0,
+  timer: 0,
 });
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     default:
       return state;
+
+    case 'timer':
+      return { ...state, timer: action.timer };
 
     case 'restart':
       return initialState();

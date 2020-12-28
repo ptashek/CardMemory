@@ -20,10 +20,13 @@ const App: ComponentType<{}> = () => {
   const [state, dispatch]: [State, Dispatch] = useAppState();
   const [cardPairs, setCardPairs] = React.useState(generateCardPairs(PAIR_COUNT));
 
+  // dispatch is stable
+  /* eslint-disable react-hooks/exhaustive-deps */
   const restartGame = React.useCallback(() => {
     dispatch({ type: 'restart' });
     setCardPairs(generateCardPairs(PAIR_COUNT));
-  }, [dispatch]);
+  }, []);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   return (
     <>

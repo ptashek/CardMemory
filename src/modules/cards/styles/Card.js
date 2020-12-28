@@ -1,7 +1,7 @@
 export default (theme) => ({
   card: {
     transformStyle: 'preserve-3d',
-    transition: 'transform 0.4s ease-in-out',
+    transition: 'transform 0.15s ease-in-out',
     WebkitTransformStyle: 'preserve-3d',
   },
   faceCommon: {

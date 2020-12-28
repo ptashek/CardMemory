@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import GamepadIcon from '@material-ui/icons/Gamepad';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import AppStateContext from './AppStateContext';
+import Timer from './Timer';
 import styles from './styles/AppBar';
 
 const useStyles = makeStyles(styles);
@@ -21,7 +22,7 @@ type AppBarProps = MUIAppBarProps & {
 
 const AppBar: ComponentType<AppBarProps> = (props: AppBarProps) => {
   const classes = useStyles();
-  const [state]: [State] = React.useContext(AppStateContext);
+  const [state]: [State, Dispatch] = React.useContext(AppStateContext);
   const { onRestartClick, ...muiAppBarProps } = props;
 
   return (
@@ -30,6 +31,9 @@ const AppBar: ComponentType<AppBarProps> = (props: AppBarProps) => {
         <GamepadIcon data-testid="app-logo" className={classes.icon} />
         <Typography variant="h6" className={classes.title} noWrap>
           Card Memory
+        </Typography>
+        <Typography variant="h6" className={classes.title} noWrap>
+          <Timer />
         </Typography>
         <Button
           variant="contained"

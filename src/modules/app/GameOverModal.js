@@ -20,11 +20,16 @@ type GameOverModalProps = {
 const GameOverModal: ComponentType<GameOverModalProps> = (props: GameOverModalProps) => {
   const classes = useStyles();
   // eslint-disable-next-line no-unused-vars
-  const [state, _, pairCount]: [State, Dispatch, number] = React.useContext(AppStateContext);
+  const [{ solved, moves, timer }, _, pairCount]: [State, Dispatch, number] = React.useContext(
+    AppStateContext,
+  );
 
-  if (state.solved.size !== pairCount) {
+  if (solved.size !== pairCount) {
     return null;
   }
+
+  const movesActual = Math.floor(moves);
+  const movesPerSecond = timer > 0 ? (movesActual / timer).toFixed(2) : 0;
 
   return (
     <Modal
@@ -49,7 +54,8 @@ const GameOverModal: ComponentType<GameOverModalProps> = (props: GameOverModalPr
         </Grid>
         <Grid item xs={12} id="modal-content">
           <Typography variant="subtitle1">
-            You have solved {pairCount} pairs in {Math.floor(state.moves)} moves.
+            You have solved {pairCount} pairs in {movesActual} moves over {timer} seconds (
+            {movesPerSecond} moves/s).
           </Typography>
         </Grid>
         <Grid item xs={9}>

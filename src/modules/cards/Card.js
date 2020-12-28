@@ -25,7 +25,7 @@ type CardFaceProps = {
 
 type CardElement = ComponentType<CardProps>;
 
-const CardBack: ComponentType<{}> = () => {
+const CardBack: ComponentType<{}> = React.memo(() => {
   const classes = useStyles();
 
   return (
@@ -34,9 +34,9 @@ const CardBack: ComponentType<{}> = () => {
       className={classnames(classes.cardContent, classes.faceCommon, classes.icon)}
     />
   );
-};
+});
 
-const CardFace: ComponentType<CardFaceProps> = (props: CardFaceProps) => {
+const CardFace: ComponentType<CardFaceProps> = React.memo((props: CardFaceProps) => {
   const classes = useStyles();
 
   return (
@@ -52,7 +52,7 @@ const CardFace: ComponentType<CardFaceProps> = (props: CardFaceProps) => {
       </Avatar>
     </Box>
   );
-};
+});
 
 const Card: CardElement = (props: CardProps) => {
   const classes = useStyles();

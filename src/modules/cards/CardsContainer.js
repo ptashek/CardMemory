@@ -21,46 +21,52 @@ type CardsContainerProps = {
 const CardsContainer: ComponentType<CardsContainerProps> = (props: CardsContainerProps) => {
   const [state, dispatch]: [State, Dispatch, number] = React.useContext(AppStateContext);
 
-  React.useEffect(() => {
-    if (state.selected.size === 2) {
-      setTimeout(() => {
-        dispatch({ type: 'clearSelected' });
-      }, 1000);
-    }
-  }, [state, dispatch]);
-
-  const clickHandlerFor: ClickHandler = React.useCallback(
-    (id: number, value: $Keys<typeof colors>): VoidCallback => () => {
+  // dispatch is stable
+  /* eslint-disable react-hooks/exhaustive-deps */
+  const flip = React.useCallback(
+    (id: number, value: $Keys<typeof colors>): VoidCallback =>
       dispatch({
         type: 'click',
         payload: {
           id,
           value,
         },
-      });
-    },
-    [dispatch],
+      }),
+    [],
   );
+  /* eslint-enable react-hooks/exhaustive-deps */
 
-  const cardElements = React.useMemo<CardElement[]>(() => {
-    return props.cardPairs.map(([color, pairIndex], id) => {
-      const cardKey = `card-${id}`;
+  const onCardClick: ClickHandler = (
+    id: number,
+    value: $Keys<typeof colors>,
+  ): VoidCallback => () => {
+    if (state.selected.size === 2) {
+      dispatch({
+        type: 'clearSelected',
+      });
+      setTimeout(() => flip(id, value), 150);
+    } else {
+      flip(id, value);
+    }
+  };
 
-      if (state.solved.has(color)) {
-        return <SolvedCard faceColor={color} faceText={String(pairIndex + 1)} key={cardKey} />;
-      }
+  const cardElements: CardElement[] = props.cardPairs.map(([color, pairIndex], id) => {
+    const cardKey = `card-${id}`;
 
-      return (
-        <Card
-          faceUp={state.selected.has(id)}
-          faceColor={color}
-          faceText={String(pairIndex + 1)}
-          onClick={clickHandlerFor(id, color)}
-          key={cardKey}
-        />
-      );
-    });
-  }, [props.cardPairs, state, clickHandlerFor]);
+    if (state.solved.has(color)) {
+      return <SolvedCard faceColor={color} faceText={String(pairIndex + 1)} key={cardKey} />;
+    }
+
+    return (
+      <Card
+        faceUp={state.selected.has(id)}
+        faceColor={color}
+        faceText={String(pairIndex + 1)}
+        onClick={onCardClick(id, color)}
+        key={cardKey}
+      />
+    );
+  });
 
   return (
     <Box display="flex" flexWrap="wrap" justifyContent="flex-start" p={2} m={2}>
