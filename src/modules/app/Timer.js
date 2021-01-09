@@ -1,10 +1,12 @@
+// @flow
+import type { ComponentType } from 'react';
 import React from 'react';
 import useInterval from '../../hooks/useInterval';
 import AppStateContext from './AppStateContext';
 
-const Timer = () => {
-  const [state, dispatch, pairCount]: [State, Dispatch] = React.useContext(AppStateContext);
-  const [timer, setTimer] = React.useState(state.timer);
+const Timer: ComponentType<{}> = () => {
+  const [state, dispatch, pairCount]: [State, Dispatch, Number] = React.useContext(AppStateContext);
+  const [timer, setTimer] = React.useState<Number>(state.timer);
   const gameOver = state.solved.size === pairCount;
 
   useInterval(() => setTimer(timer + 1), state.moves > 0 && !gameOver ? 1000 : null);
@@ -27,4 +29,4 @@ const Timer = () => {
   return `${timer} sec.`;
 };
 
-export default React.memo(Timer);
+export default React.memo<{}>(Timer);

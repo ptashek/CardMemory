@@ -22,7 +22,7 @@ type AppBarProps = MUIAppBarProps & {
 
 const AppBar: ComponentType<AppBarProps> = (props: AppBarProps) => {
   const classes = useStyles();
-  const [state]: [State, Dispatch] = React.useContext(AppStateContext);
+  const [state]: [State] = React.useContext(AppStateContext);
   const { onRestartClick, ...muiAppBarProps } = props;
 
   return (

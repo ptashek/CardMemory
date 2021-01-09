@@ -9,6 +9,7 @@ const mockAppState = {
   selected: new Map([[1, '1']]),
   solved: new Set(),
   moves: 1,
+  timer: 1,
 };
 
 jest.mock('../../../hooks/useAppState', () => {
@@ -69,17 +70,9 @@ describe('<App />', () => {
   test('renders the intro text', () => {
     const { getByText } = renderWithTheme(<App />);
     let introElement = getByText(
-      /Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes\./,
+      'Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes. Only two unmatched cards can be revealed at any given time.',
     );
-    expect(introElement).toBeInTheDocument();
 
-    introElement = getByText(/Unmatched pairs will be hidden after a short delay\./);
-    expect(introElement).toBeInTheDocument();
-  });
-
-  test('renders the stats text', () => {
-    const { getByText } = renderWithTheme(<App />);
-    const introElement = getByText(/You have solved \d+ out of \d+ pairs in \d+ moves/);
     expect(introElement).toBeInTheDocument();
   });
 

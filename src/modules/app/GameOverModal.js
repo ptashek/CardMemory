@@ -20,7 +20,7 @@ type GameOverModalProps = {
 const GameOverModal: ComponentType<GameOverModalProps> = (props: GameOverModalProps) => {
   const classes = useStyles();
   // eslint-disable-next-line no-unused-vars
-  const [{ solved, moves, timer }, _, pairCount]: [State, Dispatch, number] = React.useContext(
+  const [{ solved, moves, timer }, _, pairCount]: [State, Dispatch, Number] = React.useContext(
     AppStateContext,
   );
 

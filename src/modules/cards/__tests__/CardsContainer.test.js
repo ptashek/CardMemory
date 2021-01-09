@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, fireEvent } from '@testing-library/react';
+import { waitFor, fireEvent } from '@testing-library/react';
 import AppStateContext from '../../app/AppStateContext';
 import CardsContainer from '../CardsContainer';
 
@@ -35,44 +35,35 @@ describe('<CardsContainer cardPairs={cardPairs} />', () => {
     cardPairs.push([colorName, pairIndex]);
   }
 
-  test('renders the expected number of cards', () => {
-    const { queryAllByTestId } = renderWithTheme(
-      <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
+  const subject = (state) =>
+    renderWithTheme(
+      <AppStateContext.Provider value={[state, dispatch, pairCount]}>
         <CardsContainer cardPairs={cardPairs} />
       </AppStateContext.Provider>,
     );
+
+  test('renders the expected number of cards', () => {
+    const { queryAllByTestId } = subject(defaultState);
 
     expect(queryAllByTestId('card-', { exact: false }).length).toEqual(pairCount * 2);
   });
 
   test('all cards render face down by default', () => {
-    const { queryAllByTestId } = renderWithTheme(
-      <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
-        <CardsContainer cardPairs={cardPairs} />
-      </AppStateContext.Provider>,
-    );
+    const { queryAllByTestId } = subject(defaultState);
 
     expect(queryAllByTestId('solved-card').length).toEqual(0);
     expect(queryAllByTestId('card').length).toEqual(pairCount * 2);
   });
 
   test('solved cards render face up by default', () => {
-    const { queryAllByTestId } = renderWithTheme(
-      <AppStateContext.Provider value={[solvedState, dispatch, pairCount]}>
-        <CardsContainer cardPairs={cardPairs} />
-      </AppStateContext.Provider>,
-    );
+    const { queryAllByTestId } = subject(solvedState);
 
     expect(queryAllByTestId('card').length).toEqual((pairCount - solvedState.solved.size) * 2);
     expect(queryAllByTestId('solved-card').length).toEqual(solvedState.solved.size * 2);
   });
 
   test('selected cards render face up by default', () => {
-    const { queryAllByTestId } = renderWithTheme(
-      <AppStateContext.Provider value={[selectedState, dispatch, pairCount]}>
-        <CardsContainer cardPairs={cardPairs} />
-      </AppStateContext.Provider>,
-    );
+    const { queryAllByTestId } = subject(selectedState);
 
     const selectedCards = queryAllByTestId(
       (content, element) => content === 'card' && ['0', '1'].includes(element.textContent),
@@ -81,28 +72,23 @@ describe('<CardsContainer cardPairs={cardPairs} />', () => {
     expect(selectedCards.length).toEqual(selectedState.selected.size);
   });
 
-  test('non-matching selected pair is turned face down after a short delay', async () => {
-    renderWithTheme(
-      <AppStateContext.Provider value={[selectedState, dispatch, pairCount]}>
-        <CardsContainer cardPairs={cardPairs} />
-      </AppStateContext.Provider>,
+  test('non-matching selected pair is turned face down after another card clicked', async () => {
+    const { queryAllByTestId } = subject(selectedState);
+
+    const otherCards = queryAllByTestId(
+      (content, element) => content === 'card' && element.textContent.length === 0,
     );
 
-    await waitFor(() => expect(dispatch).toHaveBeenCalledWith({ type: 'clearSelected' }), {
-      timeout: 1100,
-    });
+    expect(otherCards.length).not.toBe(0);
+    fireEvent.click(otherCards[0]);
+
+    await waitFor(() => expect(dispatch).toHaveBeenCalledWith({ type: 'clearSelected' }));
   });
 
   test('when a card is clicked the correct click action is dispatched', async () => {
-    const { getAllByTestId } = renderWithTheme(
-      <AppStateContext.Provider value={[defaultState, dispatch, pairCount]}>
-        <CardsContainer cardPairs={cardPairs} />
-      </AppStateContext.Provider>,
-    );
+    const { getAllByTestId } = subject(defaultState);
 
     const card = getAllByTestId('card')[0];
-    expect(card).toBeInTheDocument();
-
     fireEvent.click(card);
 
     await waitFor(

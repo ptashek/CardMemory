@@ -12,19 +12,19 @@ import Card from './Card';
 type CardElement = React$Element<typeof Card | typeof SolvedCard>;
 
 type VoidCallback = () => void;
-type ClickHandler = (id: number, value: $Keys<typeof colors>) => VoidCallback;
+type ClickHandler = (id: Number, value: $Keys<typeof colors>) => VoidCallback;
 
 type CardsContainerProps = {
   cardPairs: CardPair[],
 };
 
 const CardsContainer: ComponentType<CardsContainerProps> = (props: CardsContainerProps) => {
-  const [state, dispatch]: [State, Dispatch, number] = React.useContext(AppStateContext);
+  const [state, dispatch]: [State, Dispatch] = React.useContext(AppStateContext);
 
   // dispatch is stable
   /* eslint-disable react-hooks/exhaustive-deps */
   const flip = React.useCallback(
-    (id: number, value: $Keys<typeof colors>): VoidCallback =>
+    (id: Number, value: $Keys<typeof colors>): VoidCallback =>
       dispatch({
         type: 'click',
         payload: {
@@ -37,7 +37,7 @@ const CardsContainer: ComponentType<CardsContainerProps> = (props: CardsContaine
   /* eslint-enable react-hooks/exhaustive-deps */
 
   const onCardClick: ClickHandler = (
-    id: number,
+    id: Number,
     value: $Keys<typeof colors>,
   ): VoidCallback => () => {
     if (state.selected.size === 2) {

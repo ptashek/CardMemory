@@ -1,10 +1,10 @@
 // @flow
 import colors from '@workday/canvas-colors-web';
 
-export type CardPair = [string, number];
+export type CardPair = [string, Number];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-const getRandomInt = (rangeStart: number, rangeEnd: number): number => {
+const getRandomInt = (rangeStart: number, rangeEnd: Number): Number => {
   const min = Math.ceil(rangeStart);
   const max = Math.floor(rangeEnd);
   return Math.floor(Math.random() * (max - min)) + min;
@@ -34,11 +34,11 @@ const randomColors: string[] = shuffle<string>(
   Object.keys(colors).filter((name: string) => ['200', '300', '400'].includes(name.substr(-3))),
 );
 
-export const generateCardPairs = (pairCount: number): CardPair[] => {
+export const generateCardPairs = (pairCount: Number): CardPair[] => {
   const cards: CardPair[] = [];
-  const cardCount: number = pairCount * 2;
+  const cardCount: Number = pairCount * 2;
 
-  for (let i: number = 0; i < cardCount; i++) {
+  for (let i: Number = 0; i < cardCount; i++) {
     const pairIndex = Math.floor(i / 2);
     const colorName: string = randomColors[pairIndex];
     cards.push([colorName, pairIndex]);

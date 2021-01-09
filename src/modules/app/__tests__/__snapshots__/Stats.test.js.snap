@@ -5,17 +5,7 @@ exports[`<Stats /> matches snapshot 1`] = `
   <h6
     class="MuiTypography-root makeStyles-stats-1 MuiTypography-h6"
   >
-    Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes.
-    <br />
-    Unmatched pairs will be hidden after a short delay.
-    <p />
-    You have solved 
-    1
-     out of 
-    5
-     pairs in 
-    42
-     moves
+    Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes. Only two unmatched cards can be revealed at any given time.
   </h6>
 </div>
 `;

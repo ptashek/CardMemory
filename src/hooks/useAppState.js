@@ -3,7 +3,7 @@ import React from 'react';
 import colors from '@workday/canvas-colors-web';
 
 type ClickActionPayload = {
-  id: number,
+  id: Number,
   value: $Keys<typeof colors>,
 };
 
@@ -13,10 +13,10 @@ type Action = {
 };
 
 export type State = {
-  selected: Map<number, string>,
+  selected: Map<Number, string>,
   solved: Set<string>,
-  moves: number,
-  timer: number,
+  moves: Number,
+  timer: Number,
 };
 
 export type Dispatch = (action: Action) => void;

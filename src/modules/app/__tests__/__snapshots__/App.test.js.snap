@@ -24,6 +24,11 @@ exports[`<App /> matches snapshot 1`] = `
       >
         Card Memory
       </h6>
+      <h6
+        class="MuiTypography-root-56 makeStyles-title-2 MuiTypography-h6-66 MuiTypography-noWrap-75"
+      >
+        1 sec.
+      </h6>
       <button
         class="MuiButtonBase-root-113 MuiButton-root-86 MuiButton-contained-94 MuiButton-containedSecondary-96"
         tabindex="0"
@@ -49,7 +54,7 @@ exports[`<App /> matches snapshot 1`] = `
           Restart
         </span>
         <span
-          class="MuiTouchRipple-root-153"
+          class="MuiTouchRipple-root-154"
         />
       </button>
     </div>
@@ -57,17 +62,7 @@ exports[`<App /> matches snapshot 1`] = `
   <h6
     class="MuiTypography-root-56 makeStyles-stats-116 MuiTypography-h6-66"
   >
-    Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes.
-    <br />
-    Unmatched pairs will be hidden after a short delay.
-    <p />
-    You have solved 
-    0
-     out of 
-    10
-     pairs in 
-    1
-     moves
+    Click each card to reveal it. When a pair is matched, it will remain visible until the game finishes. Only two unmatched cards can be revealed at any given time.
   </h6>
   <div
     class="MuiBox-root-117 MuiBox-root-118"
@@ -101,22 +96,6 @@ exports[`<App /> matches snapshot 1`] = `
           1
         </span>
       </div>
-    </div>
-    <div
-      class="MuiBox-root-117 MuiBox-root-135 makeStyles-card-119"
-      data-testid="card"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
-        data-testid="card-back-icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
-        />
-      </svg>
     </div>
     <div
       class="MuiBox-root-117 MuiBox-root-136 makeStyles-card-119"
@@ -376,6 +355,22 @@ exports[`<App /> matches snapshot 1`] = `
     </div>
     <div
       class="MuiBox-root-117 MuiBox-root-152 makeStyles-card-119"
+      data-testid="card"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-47 makeStyles-cardContent-123 makeStyles-faceCommon-120 makeStyles-icon-121"
+        data-testid="card-back-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root-117 MuiBox-root-153 makeStyles-card-119"
       data-testid="card"
     >
       <svg

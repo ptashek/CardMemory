@@ -14,7 +14,7 @@ import theme from './styles/theme';
 import { generateCardPairs } from '../cards/utils';
 
 // exported for testing purposes only
-export const PAIR_COUNT: number = 10;
+export const PAIR_COUNT: Number = 10;
 
 const App: ComponentType<{}> = () => {
   const [state, dispatch]: [State, Dispatch] = useAppState();
