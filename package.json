@@ -32,7 +32,7 @@
     "flow-bin": "^0.141.0",
     "flow-typed": "latest",
     "prettier": "^2.0.5",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "react-test-renderer": "^17.0.1"
   },
   "scripts": {
